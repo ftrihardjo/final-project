@@ -1,0 +1,85 @@
+definitions:
+  controller.TodoAttribute:
+    properties:
+      completed:
+        type: boolean
+      description:
+        type: string
+      title:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /todos:
+    get:
+      description: get all todos
+      operationId: get-todos
+      produces:
+      - application/json
+      responses: {}
+      tags:
+      - todos
+    post:
+      consumes:
+      - application/json
+      description: creating a new todo
+      operationId: create-todo
+      parameters:
+      - description: request body json
+        in: body
+        name: RequestBody
+        required: true
+        schema:
+          $ref: '#/definitions/controller.TodoAttribute'
+      responses: {}
+      tags:
+      - todos
+  /todos/{id}:
+    delete:
+      description: delete a todo
+      operationId: get-todo
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      tags:
+      - todos
+    get:
+      description: get a todo
+      operationId: get-todo
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      tags:
+      - todos
+    put:
+      consumes:
+      - application/json
+      description: update a todo
+      operationId: update-todo
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: request body json
+        in: body
+        name: RequestBody
+        required: true
+        schema:
+          $ref: '#/definitions/controller.TodoAttribute'
+      responses: {}
+      tags:
+      - todos
+swagger: "2.0"

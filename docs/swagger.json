@@ -1,0 +1,127 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/todos": {
+            "get": {
+                "description": "get all todos",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "todos"
+                ],
+                "operationId": "get-todos",
+                "responses": {}
+            },
+            "post": {
+                "description": "creating a new todo",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "todos"
+                ],
+                "operationId": "create-todo",
+                "parameters": [
+                    {
+                        "description": "request body json",
+                        "name": "RequestBody",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.TodoAttribute"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/todos/{id}": {
+            "get": {
+                "description": "get a todo",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "todos"
+                ],
+                "operationId": "get-todo",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Account ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "update a todo",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "todos"
+                ],
+                "operationId": "update-todo",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Account ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "request body json",
+                        "name": "RequestBody",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controller.TodoAttribute"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "delete a todo",
+                "tags": [
+                    "todos"
+                ],
+                "operationId": "get-todo",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Account ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "controller.TodoAttribute": {
+            "type": "object",
+            "properties": {
+                "completed": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
